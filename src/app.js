@@ -11,7 +11,6 @@ app.set('view engine', 'handlebars')
 app.listen(8080, () => console.log('Server Up'))
 
 app.get('/', (req, res) => {
-
     const users = [
         { nombre: 'Alex', apellido: 'Marin', edad: 45, correo: 'alexmarinmendez@gmail.com' },
         { nombre: 'Pablo', apellido: 'Volpe', edad: 15, correo: 'pablovolpe@gmail.com' },
@@ -20,7 +19,11 @@ app.get('/', (req, res) => {
         { nombre: 'Evelin', apellido: 'Capaijira', edad: 18, correo: 'evelin@gmail.com' },
     ]
     const indexAleatorio = Math.floor(Math.random() * 5)
-    res.render('actividad', users[indexAleatorio])
+    // users[indexAleatorio].title = `Datos del usuario ${indexAleatorio}`
+    res.render('actividad', {
+        title: 'Datos del usuario',
+        ...users[indexAleatorio]
+    })
 })
 
 app.get('/otraRuta', (req, res) => {
