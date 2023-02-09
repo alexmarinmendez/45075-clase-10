@@ -22,6 +22,7 @@ router.get('/', (req, res) => {
     // users[indexAleatorio].title = `Datos del usuario ${indexAleatorio}`
     res.render('actividad2', {
         title: 'Datos del usuario',
+        style: 'ejemplo.css',
         ...users[indexAleatorio],
         isAdmin: users[indexAleatorio].role == 'admin',
         foods

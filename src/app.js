@@ -5,13 +5,14 @@ import viewRouter from './routes/viewRoute.js'
 
 const app = express()
 
+app.use('/contenido', express.static('public'))
 app.engine('handlebars', handlebars.engine())
 app.set('views', __dirname + '/views')
 app.set('view engine', 'handlebars')
 
 app.listen(8080, () => console.log('Server Up'))
 
-app.use('/', viewRouter)
+app.use('/views', viewRouter)
 
 app.get('/otraRuta', (req, res) => {
     res.render('otra', {
